@@ -1,0 +1,27 @@
+class Solution {
+    /**
+     * Checks if an integer is a palindrome number.
+     *
+     * @param x The integer to check.
+     * @return true if x is a palindrome, false otherwise.
+     */
+    public boolean isPalindrome(int x) {
+        // Negative numbers are not palindromes
+        if (x < 0) {
+            return false;
+        }
+
+        int originalNumber = x;
+        int reversedNumber = 0;
+
+        // Reverse the number
+        while (x > 0) {
+            int lastDigit = x % 10; // Get the last digit
+            reversedNumber = reversedNumber * 10 + lastDigit; // Add to reversed number
+            x /= 10; // Remove the last digit
+        }
+
+        // The number is a palindrome if the original and reversed are the same
+        return originalNumber == reversedNumber;
+    }
+}
